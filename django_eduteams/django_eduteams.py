@@ -15,7 +15,6 @@ class EduTeamsOAuth2(BaseOAuth2):
     SCOPE_SEPARATOR = ","
     REDIRECT_STATE = False
 
-
     def get_user_id(self, details, response):
         """Return a unique ID for the current user, by default from server
         response."""
@@ -31,8 +30,8 @@ class EduTeamsOAuth2(BaseOAuth2):
     def user_data(self, access_token, *args, **kwargs):
         """Loads user data from service"""
         return self.get_json(
-             self.USER_INFO_URL,
-             headers={'Authorization': f'Bearer {access_token}'}
+            self.USER_INFO_URL,
+            headers={'Authorization': f'Bearer {access_token}'}
         )
 
     def extra_data(self, user, uid, response, details=None, *args, **kwargs):
